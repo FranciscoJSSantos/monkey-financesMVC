@@ -1,0 +1,30 @@
+﻿@model LoginModel
+@{
+	Layout = "_LayoutDeslogado";
+	ViewData["Title"] = "Login";
+}
+
+<div class="container align-self-center d-flex justify-content-center">
+    <form asp-controller="Login" asp-action="Entrar" method="post" class="align-self-center">
+
+        <div class="form-group">
+            <label for="nome" class="form-label">Email</label>
+            <input type="email" asp-for="Email" id="email" class="form-control" placeholder="Digite seu email">
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <label for="valor" class="form-label">Senha</label>
+            <input type="password" asp-for="Senha" id="senha" class="form-control" placeholder="Digite sua senha">
+        </div>
+
+        <br />
+
+        <br />
+        <br />
+
+        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </form>
+</div>
+ 

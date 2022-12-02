@@ -1,0 +1,44 @@
+﻿@model List<RegistroModel>
+@{
+    ViewData["Title"] = "Listagem de Registros";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Registro" asp-action="Criar">Adicionar novo Registro</a>
+    </div>
+    <br />
+
+    <h1 class="display-4">Listagem de Registros</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Tipo</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model != null && Model.Any()) {
+                foreach(RegistroModel registro in Model){
+                    <tr>
+                        <th scope="row">@registro.Id</th>
+                        <td>@registro.Name</td>
+                        <td>@registro.Valor</td>
+                        <td>@registro.Tipo</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@registro.Id" asp-controller="Registro" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@registro.Id" asp-controller="Registro" asp-action="ApagarConfirmacao">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
